@@ -1,0 +1,19 @@
+const mineflayer = require('mineflayer');
+
+const bot = mineflayer.createBot({
+  host: 'mc.example.com', // свой адрес сервера или IP
+  port: 25565,
+  username: 'MustafaBot'  // любой ник
+});
+
+bot.on('spawn', () => {
+  console.log('✅ Бот зашёл и стоит на месте');
+});
+
+bot.on('chat', (username, message) => {
+  if (username === bot.username) return;
+  bot.chat(`Привет, ${username}! Я тут стою 😉`);
+});
+node bot.jsbot.js
+npm install pm2 -g
+pm2 start bot.js
